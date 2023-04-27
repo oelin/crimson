@@ -1,8 +1,8 @@
-<p align="center"> 
-   <img src="https://github.com/oelin/crimson/blob/main/images/crimson.svg" width=35%> 
-</p> 
-  
-# Crimson 
+<p align="center">
+    <img src="https://github.com/oelin/crimson/blob/main/images/crimson.svg" width="35%">
+</p>
+
+# Crimson
 
 
 ![Build](https://github.com/vxvt/crimson/workflows/Build/badge.svg?branch=master) 
