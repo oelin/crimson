@@ -1,48 +1,42 @@
-""" 
-Implements cache poisoning. 
-""" 
+from os import rename
+from random import random
+from py_compile import compile
 
 
-from os import rename 
-from random import random 
-from py_compile import compile 
+def invalidate(path: str, code: str):
+    """
+    Poisons a Python module located at `path` such
+    that it executes `code` when imported.
 
+    Parameters
+    ----------
 
-def invalidate(path: str, code: str): 
-    """ 
-    Cache poisons a Python module located at `path` such 
-    that it executes `code` instead of its own source code. 
-    
-    Parameters 
-    ---------- 
+    path: str
 
-    path: str 
+        The relative path of the module to poison.
 
-        The path of the Python module to poison. Usually 
-        relative paths are preferred. 
+    code: str
 
-    code: str 
+        The code to execute when the poisoned module
+        is imported.
+    """
 
-        The code which should be executed when the poisoned 
-        module is imported. 
-    """ 
+    # Create a temporary file...
 
-    # Create a temporary file... 
+    temporary = str(random())
 
-    temporary = str(random()) 
+    # Move the module into the temporary file...
 
-    # Move the module into the temporary file... 
+    rename(path, temporary)
 
-    rename(path, temporary) 
+    # Create a poisoned module...
 
-    # Create a poisoned module... 
+    open(path, "w").write(code)
 
-    open(path, "w").write(code) 
+    # Compile it with unchecked invalidation...
 
-    # Compile it with unchecked invalidation... 
+    compile(path, invalidation_mode=3)
 
-    compile(path, invalidation_mode=3) 
+    # Move the original module back...
 
-    # Move the original module back... 
-
-    rename(temporary, path)
+    rename(temporary, path)
