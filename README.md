@@ -4,7 +4,7 @@
 
 # Crimson
 
-Crimson is a [cache poisoning](https://en.wikipedia.org/wiki/Cache_poisoning) library which allows you to silently inject code into Python applications. Due to [unchecked hash invalidation](https://docs.python.org/3.9/library/py_compile.html#py_compile.PycInvalidationMode.UNCHECKED_HASH), it's possible to trick Python into executing arbitrary code without modifying an application's source code.
+Crimson is a [cache poisoning](https://en.wikipedia.org/wiki/Cache_poisoning) library which allows you to silently inject code into Python applications. As a result of [unchecked hash invalidation](https://docs.python.org/3.9/library/py_compile.html#py_compile.PycInvalidationMode.UNCHECKED_HASH), it's possible to trick Python into executing arbitrary code without modifying an application's source code.
 
 
 ## Installation 
