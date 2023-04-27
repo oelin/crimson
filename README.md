@@ -43,11 +43,11 @@ After poisoning, it outputs `"pwned"` instead. Nonetheless, its source 
 You can also apply `invalidate()` to installed modules such as `numpy`. 
 
 ```py 
->>> crimson.invalidate('venv/lib/python3.9/site-packages/numpy/__init__.py', 'print("not numpy")') 
+>>> crimson.invalidate('venv/lib/python3.9/site-packages/numpy/__init__.py', 'print("pwned")') 
 ``` 
 
 ```py 
 >>> import numpy 
 
-"not numpy" 
+"pwned" 
 ``` 
