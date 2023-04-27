@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/oelin/crimson/blob/main/images/crimson.svg" width="35%">
+    <img src="https://github.com/oelin/crimson/blob/main/images/crimson.svg" width="30%">
 </p>
 
 # Crimson
