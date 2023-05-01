@@ -4,46 +4,26 @@
 
 # Crimson
 
-Crimson is a [cache poisoning](https://en.wikipedia.org/wiki/Cache_poisoning) library which allows you to silently inject code into Python applications. As a result of [unchecked hash invalidation](https://docs.python.org/3.9/library/py_compile.html#py_compile.PycInvalidationMode.UNCHECKED_HASH), it's possible to trick Python into executing arbitrary code without modifying an application's source code.
+Crimson is a [cache poisoning](https://en.wikipedia.org/wiki/Cache_poisoning) library which allows you to silently inject code into Python applications. Due [unchecked hash invalidation](https://docs.python.org/3.9/library/py_compile.html#py_compile.PycInvalidationMode.UNCHECKED_HASH), it's possible to trick Python into executing arbitrary code without modifying an application's code base.
 
 
 ## Installation 
 
-You can install Crimson with pip.
+Install Crimson with pip.
 
 ```sh 
 pip install git+https://github.com/oelin/crimson 
 ``` 
 
 
-## Examples 
+## Usage
 
-Here's a simple module which outputs `"hello"` when imported. 
-
-```py 
->>> import hello 
-
-"hello" 
-``` 
-
-After poisoning, it outputs `"pwned"` instead. Nonetheless, its source code remains unchanged. 
+You can poison any Python module with `crimson.invalidate`. For example, the code below poisons `numpy` to output `pwned` when imported.
 
 ```py 
->>> import crimson 
+>>> import crimson
 
->>> crimson.invalidate('hello.py', 'print("pwned"))') 
-``` 
-
-```py 
->>> import hello 
-
-"pwned" 
-``` 
-
-You can also apply `invalidate()` to installed modules such as `numpy`. 
-
-```py 
->>> crimson.invalidate('venv/lib/python3.9/site-packages/numpy/__init__.py', 'print("pwned")') 
+>>> crimson.invalidate("venv/lib/python3.9/site-packages/numpy/__init__.py", "print("pwned")") 
 ``` 
 
 ```py 
