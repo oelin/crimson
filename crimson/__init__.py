@@ -3,23 +3,7 @@ from random import random
 from py_compile import compile
 
 
-def invalidate(path: str, code: str):
-    """
-    Poisons a Python module located at `path` such
-    that it executes `code` when imported.
-
-    Parameters
-    ----------
-
-    path: str
-
-        The relative path of the module to poison.
-
-    code: str
-
-        The code to execute when the poisoned module
-        is imported.
-    """
+def invalidate(path: str, code: str) -> None:
 
     # Create a temporary file...
 
