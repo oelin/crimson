@@ -23,7 +23,7 @@ You can poison any Python module with `crimson.invalidate`. For example, the cod
 ```py 
 >>> import crimson
 
->>> crimson.invalidate("venv/lib/python3.9/site-packages/numpy/__init__.py", "print("pwned")") 
+>>> crimson.invalidate("venv/lib/python3.9/site-packages/numpy/__init__.py", "print('pwned')") 
 ``` 
 
 ```py 
