@@ -3,7 +3,7 @@ from random import random
 from py_compile import compile
 
 
-def poison(path: str, code: str) -> None:
+def invalidate(path: str, code: str) -> None:
     
     temporary = str(random())
     
