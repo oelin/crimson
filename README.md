@@ -21,7 +21,7 @@ Crimson allows you to poison any Python module located on a host machine. For ex
 ```py 
 >>> import crimson
 
->>> crimson.invalidate(path="venv/lib/python3.9/site-packages/numpy/__init__.py", code="print('pwned')") 
+>>> crimson.invalidate("venv/lib/python3.9/site-packages/numpy/__init__.py", "print('pwned')") 
 ``` 
 
 ```py 
