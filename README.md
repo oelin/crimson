@@ -16,7 +16,7 @@ pip install git+https://github.com/oelin/crimson
 
 ## Usage
 
-Crimson allows you to poison any Python module located on the target machine. For example, the code below poisons `numpy` so that it outputs `pwned` when imported. Note that the module's source code will remain unchanged.
+Crimson allows you to poison any Python module without altering its source code. For instance, the code below poisons `numpy` so that it outputs `pwned` when imported.
 
 ```py 
 >>> import crimson
